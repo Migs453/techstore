@@ -1,0 +1,12 @@
+{
+  "name": "techstore-projeto-frontend-backend",
+  "version": "1.0.0",
+  "description": "Projeto Prático Front-End e Back-End com JSON-Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

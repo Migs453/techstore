@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore - Boas-Vindas & Ofertas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1> TechStore</h1>
+    <nav>
+      <a href="boas_vindas.html" class="active">Início</a>
+      <a href="admin.html" id="navAdminLink">Painel Admin</a>
+      <a href="#" onclick="fazerLogout()">Sair</a>
+    </nav>
+  </header>
+
+  <section class="hero-banner">
+    <h2 id="welcomeHeading">Bem-vindo à TechStore!</h2>
+    <p>Sua loja completa de tecnologia. Aproveite as nossas ofertas exclusivas de boas-vindas com frete grátis!</p>
+  </section>
+
+  <div class="container">
+    <h3 class="section-title">🔥 Produtos em Destaque</h3>
+
+    <div class="product-grid">
+      
+      <div class="product-card">
+        <span class="badge">Mais Vendido</span>
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&auto=format&fit=crop" alt="Smartphone Pro">
+        <div class="product-info">
+          <h4>Smartphone Tech Pro 128GB</h4>
+          <p class="product-desc">Tela AMOLED 6.7", Câmera Tripla 50MP, 5G.</p>
+          <div class="price-container">
+            <span class="old-price">R$ 2.999,00</span>
+            <span class="price">R$ 2.499,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Smartphone Tech Pro')">Comprar Agora</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Oferta</span>
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&auto=format&fit=crop" alt="Notebook Ultra">
+        <div class="product-info">
+          <h4>Notebook UltraSlim i7 16GB</h4>
+          <p class="product-desc">SSD 512GB, Tela Full HD 15.6", Bateria de longa duração.</p>
+          <div class="price-container">
+            <span class="old-price">R$ 4.999,00</span>
+            <span class="price">R$ 4.199,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Notebook UltraSlim')">Comprar Agora</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&auto=format&fit=crop" alt="Headphone Bluetooth">
+        <div class="product-info">
+          <h4>Headphone Wireless Noise Canceling</h4>
+          <p class="product-desc">Cancelamento de ruído ativo, áudio Hi-Fi, 30h de bateria.</p>
+          <div class="price-container">
+            <span class="price">R$ 399,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Headphone Wireless')">Comprar Agora</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">Novo</span>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&auto=format&fit=crop" alt="Smartwatch Sport">
+        <div class="product-info">
+          <h4>Smartwatch Tech Fit Monitor GPS</h4>
+          <p class="product-desc">Resistente à água, monitor cardíaco e 20 modos esportivos.</p>
+          <div class="price-container">
+            <span class="old-price">R$ 699,00</span>
+            <span class="price">R$ 499,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Smartwatch Tech Fit')">Comprar Agora</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&auto=format&fit=crop" alt="Monitor Gaming">
+        <div class="product-info">
+          <h4>Monitor Gamer 27" 165Hz 1ms</h4>
+          <p class="product-desc">Painel IPS, FreeSync Premium, ajuste de altura.</p>
+          <div class="price-container">
+            <span class="price">R$ 1.299,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Monitor Gamer 27')">Comprar Agora</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&auto=format&fit=crop" alt="Teclado Mecânico">
+        <div class="product-info">
+          <h4>Teclado Mecânico RGB Switch Red</h4>
+          <p class="product-desc">Layout ABNT2, teclas anti-ghosting, iluminação customizável.</p>
+          <div class="price-container">
+            <span class="old-price">R$ 349,00</span>
+            <span class="price">R$ 279,00</span>
+          </div>
+          <button type="button" onclick="adicionarAoCarrinho('Teclado Mecânico RGB')">Comprar Agora</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('usuarioLogado'));
+      if (user) {
+        document.getElementById('welcomeHeading').textContent = `Bem-vindo(a) à TechStore, ${user.nome}!`;
+      }
+    });
+  </script>
+</body>
+</html>

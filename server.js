@@ -42,4 +42,4 @@ server.listen(porta, () => {
     console.log(`JSON SERVER está rodando em http://localhost:${porta}`);
 })
 
-const API_URL = 'http://localhost:3000/usuarios';
+const API_URL = 'https://techstore-3-e8go.onrender.com.onrender.com/usuarios';

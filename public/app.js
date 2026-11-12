@@ -1,5 +1,8 @@
 const API_URL = 'http://localhost:3000/usuarios';
 
+// ==========================================================================
+// 1. PÁGINA DE LOGIN (GET)
+// ==========================================================================
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
@@ -20,7 +23,7 @@ if (loginForm) {
         localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
         alert(`Login efetuado com sucesso! Bem-vindo(a), ${usuarioEncontrado.nome}.`);
 
-        if (usuarioEncontrado.email === 'admin@techstore.com' || usuarioEncontrado.perfil === 'admin') {
+        if (usuarioEncontrado.email === 'admin@techstore.com' || usuarioEncontrado.categoria === 'admin') {
           window.location.href = 'admin.html';
         } else {
           window.location.href = 'boas_vindas.html';
@@ -53,7 +56,7 @@ if (cadastroForm) {
       rua: document.getElementById('rua').value.trim(),
       cidade: document.getElementById('cidade').value.trim(),
       estado: document.getElementById('estado').value.trim().toUpperCase(),
-      perfil: 'user'
+      categoria: document.getElementById('categoria')?.value.trim() || 'usuario'
     };
 
     try {
@@ -85,7 +88,7 @@ function verificarAcessoAdmin() {
     return;
   }
 
-  if (usuarioLogado.email !== 'admin@techstore.com' && usuarioLogado.perfil !== 'admin') {
+  if (usuarioLogado.email !== 'admin@techstore.com' && usuarioLogado.categoria !== 'admin') {
     alert('Acesso restrito para administradores.');
     window.location.href = 'boas_vindas.html';
   }
@@ -161,6 +164,15 @@ async function abrirEdicao(id) {
     document.getElementById('editCidade').value = user.cidade;
     document.getElementById('editEstado').value = user.estado;
 
+    const editCategoria = document.getElementById('editCategoria');
+    if (editCategoria) {
+      editCategoria.value = user.categoria || 'usuario';
+    }
+    const form = document.getElementById('editForm');
+    if (form) {
+      form.dataset.categoria = user.categoria || 'usuario';
+    }
+
     const editCard = document.getElementById('editCard');
     editCard.style.display = 'block';
     editCard.scrollIntoView({ behavior: 'smooth' });
@@ -190,7 +202,8 @@ if (editForm) {
       cep: document.getElementById('editCep').value.trim(),
       rua: document.getElementById('editRua').value.trim(),
       cidade: document.getElementById('editCidade').value.trim(),
-      estado: document.getElementById('editEstado').value.trim().toUpperCase()
+      estado: document.getElementById('editEstado').value.trim().toUpperCase(),
+      categoria: document.getElementById('editCategoria')?.value.trim() || editForm.dataset.categoria || 'usuario'
     };
 
     try {

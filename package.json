@@ -7,6 +7,7 @@
     "start": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "express": "^5.3.0",
     "json-server": "^0.17.4"
   }
 }

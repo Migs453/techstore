@@ -41,6 +41,20 @@
       "estado": "SP",
       "perfil": "user",
       "id": "mCBzfA5"
+    },
+    {
+      "nome": "LUCAS",
+      "sobrenome": "SOUSA",
+      "cpf": "50478268806",
+      "telefone": "11996832367",
+      "email": "lucas@gmail.com",
+      "senha": "123",
+      "cep": "08780-070",
+      "rua": "Avenida Paulista",
+      "cidade": "Mogi das Cruzes",
+      "estado": "SP",
+      "perfil": "user",
+      "id": "djblGh2"
     }
   ]
 }
